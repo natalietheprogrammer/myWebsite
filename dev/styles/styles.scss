@@ -1,0 +1,439 @@
+article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary{display:block;}audio,canvas,video{display:inline-block;}audio:not([controls]){display:none;height:0;}[hidden]{display:none;}html{font-family:sans-serif;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;}a:focus{outline:thin dotted;}a:active,a:hover{outline:0;}h1{font-size:2em;}abbr[title]{border-bottom:1px dotted;}b,strong{font-weight:700;}dfn{font-style:italic;}mark{background:#ff0;color:#000;}code,kbd,pre,samp{font-family:monospace, serif;font-size:1em;}pre{white-space:pre-wrap;word-wrap:break-word;}q{quotes:\201C \201D \2018 \2019;}small{font-size:80%;}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline;}sup{top:-.5em;}sub{bottom:-.25em;}img{border:0;}svg:not(:root){overflow:hidden;}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em;}button,input,select,textarea{font-family:inherit;font-size:100%;margin:0;}button,input{line-height:normal;}button,html input[type=button],/* 1 */
+input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer;}button[disabled],input[disabled]{cursor:default;}input[type=checkbox],input[type=radio]{box-sizing:border-box;padding:0;}input[type=search]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box;}input[type=search]::-webkit-search-cancel-button,input[type=search]::-webkit-search-decoration{-webkit-appearance:none;}textarea{overflow:auto;vertical-align:top;}table{border-collapse:collapse;border-spacing:0;}body,figure{margin:0;}legend,button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0;}
+
+.clearfix:after {visibility: hidden; display: block; font-size: 0; content: " "; clear: both; height: 0; }
+
+* { box-sizing: border-box; }
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+   Natalie Baranova has added: main, button, input, and textarea to the first part of the list below (resetting margins etc).
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, button, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, main,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/*end of meyerweb.com input*/
+
+li {
+	display: inline-block;
+}
+
+// remove default anchor tag styling
+
+a:link {
+    text-decoration: inherit;
+    color: inherit;
+    cursor: auto;
+}
+
+a:visited {
+    text-decoration: inherit;
+    color: inherit;
+    cursor: auto;
+}
+
+// MIXINS & VARIABLES
+
+// font mixin
+@mixin fontStyling($font-familyValue, $font-sizeValue, $font-weightValue, $text-transformValue, $text-alignValue) {	
+	color: $darkest;
+	font-family: $font-familyValue;
+	font-size: $font-sizeValue;
+	font-weight: $font-weightValue;
+	text-transform: $text-transformValue;
+	text-align: $text-alignValue;
+}
+
+// font family variables
+$general: 'Roboto', sans-serif;
+$header: 'Dosis', sans-serif;
+
+// colour variables
+$darkest: rgba(35, 35, 35, 1);
+$dark-fill: rgba(35, 35, 35, 0.8);
+$active-color: rgba(212, 61, 50, 1);
+$active-fill: rgba(212, 61, 50, 0.8);
+
+
+// GENERAL STYLES
+
+.outter-wrapper {
+	max-width: 1920px;
+	font-family: $general;
+	background-color: rgba(35, 35, 35, 0.2);
+}
+
+.inner-wrapper {
+	max-width: 1170px;
+	margin: 0 auto;
+	padding: 0 30px;
+	background-color: rgba(250, 250, 250, 0.2);
+}
+
+h1 {
+	@include fontStyling($header, 50px, 800, uppercase, left);
+	padding-top: 15px;
+	padding-bottom: 20px;
+	letter-spacing: 0.05em;
+}
+
+h2 {
+	@include fontStyling($header, 36px, bold, uppercase, left);
+	padding-top: 120px;
+	padding-bottom: 60px;
+}
+
+header h2 {
+	@include fontStyling($header, 24px, regular, uppercase, left)
+}
+
+h3 {
+	@include fontStyling($header, 24px, bold, uppercase, left);
+	padding-bottom: 30px;
+}
+
+h4 {
+	@include fontStyling($header, 18px, bold, capitalize, left);
+	padding-top: 12px;
+	padding-bottom: 25px;
+}
+
+h5 {
+	@include fontStyling($header, 14px, regular, uppercase, left);
+	padding-top: 20px;
+	padding-bottom: 12px;
+	border-bottom: 1px solid $darkest;
+}
+
+
+footer p {
+	@include fontStyling($header, 16px, regular, capitalize, center)
+}
+
+img {
+	display: block;
+	max-width: 100%;
+}
+
+.hidden {
+	display: none;
+}
+
+
+// NAV SECTION
+
+nav {
+	height: 100px;
+}
+
+nav a {
+	@include fontStyling($general, 14px, regular, uppercase, center)
+	&:hover {
+		font-weight: bolder;
+	}
+	&:active {
+		font-weight: bold;
+		color: $active-color;
+	}
+}
+
+.resume-button {
+	padding: 12px 22px;
+	border: 2px solid $darkest;
+	text-align: center;
+	&:hover {
+		color: white;
+		background-color: $dark-fill;
+	}
+	&:active {
+		font-weight: bold;
+		border: 2px solid $active-color;
+		background-color: $active-fill;
+	}
+}
+
+.LHS-RHS-splitter {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	height: 100%;
+}
+
+.LHS-nav {
+	padding: 0 15px;
+	width: 20%;
+}
+
+.RHS-nav {
+	width: 80%;
+	ul {
+		padding: 0 15px;
+		display: flex;
+		flex-direction: row;
+		justify-content: flex-end;
+	}
+	li {
+		padding-right: 40px;
+		padding-top: 10px;
+		padding-bottom: 10px;
+	}
+	li:last-of-type {
+		padding-right: 0px;
+	}
+}
+
+// HEADER SECTION
+
+header {
+	height: 600px;
+	background-image: url(../images/natalieBaranova-website.jpg);
+	background-repeat: no-repeat;
+	background-position: right;
+	background-size: contain;
+	.inner-wrapper {
+		height: 100%;
+		position: relative;
+	}
+	.title-blocks {
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+	h2 {
+		padding-top: 0;
+		padding-bottom: 0;
+	}
+}
+
+
+// ABOUT SECTION: 
+main {
+	.inner-wrapper {
+		display: flex;
+		flex-direction: row;
+	}
+}
+
+.LHS-about {
+	width: 65.35%;
+	p {
+		line-height: 26px;
+		margin-top: 15px;
+	}
+	p:first-of-type {
+		margin-top: 0;
+	}
+	.inner-about-container {
+		display: flex;
+		flex-direction: row;
+		.small-about-container {
+			width: 50%;
+			padding-left: 35px;
+			padding-top: 50px;
+		}
+	}
+}
+
+.RHS-about {
+	width: 34.65%;
+	text-transform: uppercase;
+	text-align: center;
+	padding: 0 30px;
+	li {
+		width: 32.5%;
+		padding-bottom: 25px;
+		p {
+			padding-bottom: 10px;
+		}
+		i {
+			font-size: 35px;
+		}
+	}
+	li:last-of-type {
+		padding-top: 60px;
+		width: 100%;
+		p {
+			padding-bottom: 40px;
+		}
+		i {
+			width: 31.25%;
+			font-size: 60px;
+		}
+	}
+}
+
+// PORTFOLIO SECTION
+
+#portfolio {
+	.inner-wrapper {
+		padding: 0 15px;
+	}
+	h2, p {
+		text-align: center;
+	}
+	ul {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		p {
+			line-height: 26px;
+			margin-top: 15px;
+			text-align: left;
+		}
+		p:first-of-type {
+			margin-top: 0;
+		}
+	}
+	li {
+		width: calc( 32% - 15px);
+		padding-bottom: 15px;
+		position: relative;
+	}
+	li:first-of-type {
+		width: 100%;
+	}
+}
+
+.portfolio-gallery {
+	margin-top: 55px;
+	li:nth-of-type(2), li:nth-of-type(4) {
+		.portfolio-links-container {
+			position: absolute;
+			bottom: 15px;
+			width: 100%;
+		}
+	}
+}
+
+.image-holder {
+	// width: 100%;
+	background-color: grey;
+	height: 250px;
+}
+
+
+.portfolio-links-container {
+	margin: 25px 0;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	.portfolio-link-button {
+		padding: 5px 20px;
+		border: 2px solid $darkest;
+		text-align: center;
+		&:hover {
+			color: white;
+			background-color: $dark-fill;
+		}
+		&:active {
+			font-weight: bold;
+			border: 2px solid $active-color;
+			background-color: $active-fill;
+		}
+	}
+	.social-icons-portfolio i {
+		font-size: 20px;
+		padding: 0 5px;
+	    transition: all 0.25s ease;
+		&:hover {
+    		transform: scale(1.4);
+		}
+		&:active {
+			font-weight: bold;
+			color: $active-color;
+		}
+	}
+}
+
+.lg-portfolio-flex-container {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	.description {
+		width: 85%;
+	}
+	.portfolio-links-container {
+		width: 15%;
+		margin: 0;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		a {
+			margin-bottom: 15px;
+		}
+		.links-section-portfolio a {
+			display: block;
+		}
+		.social-icons-portfolio {
+			margin-bottom: 15px;
+		}
+	}
+}
+
+// FOOTER + CONTACT SECTION
+
+footer {
+	margin-top: 200px;
+	margin-bottom: 115px;
+	padding: 30px 0;
+	text-align: center;
+	ul {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+	}
+}
+
+footer i.fa {
+	font-size: 40px;
+	padding-bottom: 25px;
+}
+
+
+
