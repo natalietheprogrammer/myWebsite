@@ -373,6 +373,15 @@ nav a {
   .RHS-nav li:last-of-type {
     padding-right: 0px; }
 
+/* add burger bars, hide RHS nav buttons */
+@media (max-width: 525px) {
+  .mobile-unhidden {
+    display: block; }
+    .mobile-unhidden i {
+      font-size: 25px; }
+  .mobile-hidden {
+    display: none; } }
+
 header {
   height: 600px;
   background-image: url(../images/natalieBaranova-website.jpg);
@@ -393,22 +402,17 @@ header {
 
 /* small to medium desktops */
 @media (max-width: 985px) {
-  body {
-    background-color: cyan; }
   header .title-blocks {
     display: flex;
     flex-direction: column-reverse;
-    background: rgba(255, 165, 0, 0.25);
     position: absolute;
     top: 42%;
     padding-top: 10px;
     left: -155px;
     transform: rotate(-90deg); } }
 
-/* scale header (image) height and adjust titel blocks vertically*/
+/* scale header (image) height and adjust title blocks vertically */
 @media (max-width: 784px) {
-  body {
-    background-color: cyan; }
   header {
     height: 465px; }
     header .title-blocks {
@@ -417,13 +421,15 @@ header {
 /* move title blocks to bottom of image*/
 @media (max-width: 640px) {
   header {
+    height: 320px;
     background-image: none; }
     header .title-blocks {
       display: flex;
       flex-direction: column;
-      background: rgba(255, 165, 0, 0.25);
-      position: static;
-      transform: rotate(0); } }
+      position: absolute;
+      top: 50%;
+      left: 15px;
+      transform: rotate(0) translateY(-50%); } }
 
 main .inner-wrapper {
   display: flex;
@@ -467,8 +473,6 @@ main .inner-wrapper {
 
 /* small to medium desktops */
 @media (max-width: 1129px) {
-  body {
-    background-color: green; }
   .RHS-about h2 {
     text-align: center; }
   .RHS-about .keyline-left:after {
@@ -486,8 +490,6 @@ main .inner-wrapper {
 
 /* small to medium desktops */
 @media (max-width: 790px) {
-  body {
-    background-color: purple; }
   main .inner-wrapper {
     flex-direction: column; }
   main .LHS-about, main .RHS-about {
@@ -496,8 +498,6 @@ main .inner-wrapper {
     padding-bottom: 20px; } }
 
 @media (max-width: 650px) {
-  body {
-    background-color: purple; }
   .RHS-about {
     padding: 0px; } }
 
@@ -551,7 +551,7 @@ main .inner-wrapper {
 .image-holder {
   background-color: grey; }
   .image-holder img {
-    max-width: 100%; }
+    width: 100%; }
 
 .image-holder.large {
   display: flex;
@@ -610,8 +610,6 @@ main .inner-wrapper {
 
 /* Portrait tablet and small desktops */
 @media (max-width: 985px) {
-  body {
-    background-color: orange; }
   .lg-portfolio-flex-container {
     flex-direction: column;
     justify-content: space-between; }
@@ -629,8 +627,6 @@ main .inner-wrapper {
 
 /* Portrait tablet and small desktops */
 @media (max-width: 735px) {
-  body {
-    background-color: pink; }
   .portfolio-links-container {
     flex-direction: column-reverse;
     align-items: flex-start;
@@ -638,6 +634,27 @@ main .inner-wrapper {
     .portfolio-links-container .social-icons-portfolio {
       padding-bottom: 25px; } }
 
+/* convert row of 3 cells to 2 cells per row  */
+/* vertically place cells w padding, center last cell */
+@media (max-width: 670px) {
+  #portfolio li {
+    width: 100%;
+    padding-bottom: 50px; }
+    #portfolio li div.hidden-at-670px {
+      display: none;
+      width: 0; }
+    #portfolio li div.unhidden-at-670px {
+      display: block;
+      width: 100%; }
+  #portfolio li:first-of-type {
+    padding-bottom: 8px; }
+  .portfolio-gallery li:nth-of-type(2) .portfolio-links-container {
+    bottom: 50px; }
+  .portfolio-gallery li:nth-of-type(2) .portfolio-links-container, .portfolio-gallery li:nth-of-type(4) .portfolio-links-container {
+    position: static; } }
+
+/* convert row of 2 cells per row to 1 cell per  */
+/* vertically place cells w padding, center last cell */
 #contact {
   margin-top: 80px;
   padding-top: 90px;
@@ -701,16 +718,5 @@ main .inner-wrapper {
     margin-top: 0; } }
 
 /* Portrait tablet and small desktops */
-@media (max-width: 940px) {
-  body {
-    background-color: red; } }
-
 /* Landscape phone to portrait tablet */
-@media (max-width: 768px) {
-  body {
-    background-color: blue; } }
-
 /* Landscape phones and down */
-@media (max-width: 480px) {
-  body {
-    background-color: yellow; } }

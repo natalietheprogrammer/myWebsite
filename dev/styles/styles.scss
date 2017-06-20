@@ -281,6 +281,20 @@ nav a {
 	}
 }
 
+	/* add burger bars, hide RHS nav buttons */
+	@media (max-width: 525px) {
+		.mobile-unhidden {
+			display: block;
+			i {
+				font-size: 25px;
+			}
+		}
+		.mobile-hidden {
+			display: none;
+		}
+
+	}
+
 // HEADER SECTION
 
 header {
@@ -307,14 +321,10 @@ header {
 
 	/* small to medium desktops */
 	@media (max-width: 985px) {
-		body {
-			background-color: cyan;
-		}
 		header {
 			.title-blocks {
 				display: flex;
 				flex-direction: column-reverse;
-				background: $orange-yellow-transparency;
 				position: absolute;
 				top: 42%;
 				padding-top: 10px;
@@ -326,12 +336,8 @@ header {
 
 	}
 
-
-	/* scale header (image) height and adjust titel blocks vertically*/
+	/* scale header (image) height and adjust title blocks vertically */
 	@media (max-width: 784px) {
-		body {
-			background-color: cyan;
-		}
 		header {
 			height: 465px;
 			.title-blocks {
@@ -341,20 +347,23 @@ header {
 
 	}
 
+
 	/* move title blocks to bottom of image*/
 	@media (max-width: 640px) {
 		header {
+			height: 320px;
 			background-image: none;
 			.title-blocks {
 				display: flex;
 				flex-direction: column;
-				background: $orange-yellow-transparency;
-				position: static;
+				position: absolute;
+				top: 50%;
+				left: 15px;
 				// position: absolute;
 				// top: 42%;
 				// padding-top: 10px;
 				// left: -155px;
-				transform: rotate(0);
+				transform: rotate(0) translateY(-50%);
 			}
 		}
 
@@ -374,7 +383,6 @@ main {
 }
 
 .LHS-about {
-	// flex: 2;
 	width: 65.35%;
 	p {
 		line-height: 26px;
@@ -395,7 +403,6 @@ main {
 }
 
 .RHS-about {
-	// flex: 1;
 	width: 34.65%;
 	text-transform: uppercase;
 	text-align: center;
@@ -425,10 +432,6 @@ main {
 
 	/* small to medium desktops */
 	@media (max-width: 1129px) {
-		body {
-			background-color: green;
-		}
-		
 		// convert RHS-about section h2 to center 
 		// convert RHS-about section h2 keyline-left to keyline-center
 		.RHS-about {
@@ -453,11 +456,7 @@ main {
 	}
 
 	/* small to medium desktops */
-	@media (max-width: 790px) {
-		body {
-			background-color: purple;
-		}
-		
+	@media (max-width: 790px) {		
 		main {
 			.inner-wrapper {
 				flex-direction: column;
@@ -472,10 +471,6 @@ main {
 	}
 
 	@media (max-width: 650px) {
-		body {
-			background-color: purple;
-		}
-		
 		.RHS-about {
 			padding: 0px
 		}
@@ -560,7 +555,7 @@ main {
 .image-holder {
 	background-color: grey;
 	img {
-		max-width: 100%;
+		width: 100%;
 	}
 }
 
@@ -637,9 +632,6 @@ main {
 
 	/* Portrait tablet and small desktops */
 	@media (max-width: 985px) {
-		body {
-			background-color: orange;
-		}
 		.lg-portfolio-flex-container {
 			flex-direction: column;
 			justify-content: space-between;
@@ -663,9 +655,6 @@ main {
 
 	/* Portrait tablet and small desktops */
 	@media (max-width: 735px) {
-		body {
-			background-color: pink;
-		}
 		.portfolio-links-container {
 			flex-direction: column-reverse;
 			align-items: flex-start;
@@ -675,6 +664,74 @@ main {
 			}
 		}
 	}
+
+	/* convert row of 3 cells to 2 cells per row  */
+	/* vertically place cells w padding, center last cell */
+	@media (max-width: 670px) {
+		#portfolio {
+			li {
+				width: 100%;
+				padding-bottom: 50px;
+				div.hidden-at-670px {
+					display: none;
+					width: 0;
+				}
+				div.unhidden-at-670px {
+					display: block;
+					width: 100%;
+				}
+			}
+			li:first-of-type {
+				padding-bottom: 8px;
+			}
+
+
+		}
+		.portfolio-gallery {
+			li:nth-of-type(2) {
+				.portfolio-links-container {
+					bottom: 50px;
+				}
+			}
+			li:nth-of-type(2), li:nth-of-type(4) {
+				.portfolio-links-container {
+					position: static;
+				}
+			}
+		}
+	}
+
+	/* convert row of 2 cells per row to 1 cell per  */
+	/* vertically place cells w padding, center last cell */
+	// @media (max-width: 500px) {
+	// 	#portfolio {
+	// 		li {
+	// 			width: calc(100% - 15px);
+	// 			.image-holder {
+	// 				max-width: 350px;
+	// 				margin: 0 auto;
+	// 			}
+	// 		}
+	// 		// li:first-of-type {
+	// 		// 	padding-bottom: 8px;
+	// 		// }
+	// 		// li:last-child {
+	// 		// 	margin: 0 auto;
+	// 		// }
+	// 	}
+	// 	.portfolio-gallery {
+	// 		// li:nth-of-type(2) {
+	// 		// 	.portfolio-links-container {
+	// 		// 		bottom: 50px;
+	// 		// 	}
+	// 		// }
+	// 		li:nth-of-type(2) {
+	// 			.portfolio-links-container {
+	// 				position: static;
+	// 			}
+	// 		}
+	// 	}
+	// }
 
 // CONTACT & FOOTER SECTION
 
@@ -752,7 +809,6 @@ main {
 			display: block;
 			margin-top: 50px;
 		}
-
 	}
 }
 
@@ -776,22 +832,22 @@ main {
 
 
 /* Portrait tablet and small desktops */
-@media (max-width: 940px) {
-	body {
-		background-color: red;
-	}
-}
+// @media (max-width: 940px) {
+// 	body {
+// 		background-color: red;
+// 	}
+// }
 
 /* Landscape phone to portrait tablet */
-@media (max-width: 768px) {
-	body {
-		background-color: blue;
-	}
-}
+// @media (max-width: 768px) {
+// 	body {
+// 		background-color: blue;
+// 	}
+// }
 
 /* Landscape phones and down */
-@media (max-width: 480px) {
-	body {
-		background-color: yellow;
-	}
-}
+// @media (max-width: 480px) {
+// 	body {
+// 		background-color: yellow;
+// 	}
+// }
