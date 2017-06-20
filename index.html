@@ -70,7 +70,7 @@
 		<main id="about">
 			<div class="inner-wrapper">
 				<div class="LHS-about">
-					<h2 class="keyline">about me</h2>
+					<h2 class="keyline-left">about me</h2>
 					<section class="about-main-description">
 						<p>Hi! I’m a front-end web developer living in the GTA of Ontario. In a past life I worked as an engineer monitoring soil, groundwater, and structural movement as well as environmental concerns for small- to large-scale construction sites.</p>
 
@@ -89,57 +89,10 @@
 								<p>I am a strong believer in accessibility for all and having work environments that allow everyone to perform to the best of their abilities. It would also be great to have an office dog.</p>
 							</div>
 						</div>
-						<div class="hidden">
-							<h3>skills + tools</h3>
-							<ul>
-								<li>
-									<p>html5</p>
-									<i class="devicon-html5-plain"></i>
-								</li>
-								<li>
-									<p>css3</p>
-									<i class="devicon-css3-plain"></i>
-								</li>
-								<li>
-									<p>sass</p>
-									<i class="devicon-sass-original"></i>
-								</li>
-								<li>
-									<p>javascript</p>
-									<i class="devicon-javascript-plain"></i>
-								</li>
-								<li>
-									<p>jquery</p>
-									<i class="devicon-jquery-plain"></i>
-								</li>
-								<li>
-									<p>react</p>
-									<i class="devicon-react-original"></i>
-								</li>
-								<li>
-									<p>gulp</p>
-									<i class="devicon-gulp-plain"></i>
-								</li>
-								<li>
-									<p>github</p>
-									<i class="devicon-github-plain"></i>
-								</li>
-								<li>
-									<p>git</p>
-									<i class="devicon-git-plain"></i>
-								</li>
-								<li>
-									<p>responsive design</p>
-									<i class="fa fa-laptop" aria-hidden="true"></i>
-									<i class="fa fa-tablet" aria-hidden="true"></i>
-									<i class="fa fa-mobile" aria-hidden="true"></i>
-								</li>
-							</ul>
-						</div>
 					</div> <!-- end of outter-about-container -->
 				</div> <!-- end of LHS-about -->
 				<div class="RHS-about">
-				<h2 class="keyline">skills + tools</h2>
+				<h2 class="keyline-left">skills + tools</h2>
 					<ul>
 						<li>
 							<p>html5</p>
@@ -177,7 +130,7 @@
 							<p>git</p>
 							<i class="devicon-git-plain"></i>
 						</li>
-						<li>
+						<li class="hidden-at-1130">
 							<p>responsive design</p>
 							<i class="fa fa-laptop" aria-hidden="true"></i>
 							<i class="fa fa-tablet" aria-hidden="true"></i>
@@ -192,16 +145,19 @@
 		<!-- PORTFOLIO SECTION -->
 		<section id="portfolio">
 			<div class="inner-wrapper">
-				<h2 class="keyline">featured portfolio pieces</h2>
+				<h2 class="keyline-center">featured portfolio pieces</h2>
 				<p>Using best practices for modern web development I make responsive, accessible sites with clean and dry code.</p>
 				<ul class="portfolio-gallery">
 					<!-- gallery item #1 -->
 					<li>
-						<div class="image-holder"></div>
+						<div class="image-holder large">
+							<div class="image-left"><img src="./public/images/imr-left.png" alt=""></div>
+							<div class="image-right"><img src="./public/images/imr-right.png" alt=""></div>
+						</div>
 						<h5>
 							react
 							<span class="keyline-sm">firebase</span>
-							<span class="keyline-sm">js</span>
+							<span class="keyline-sm">javascript</span>
 							<span class="keyline-sm">api</span>
 							<span class="keyline-sm">es6</span>
 							<span class="keyline-sm">gulp</span>
@@ -230,12 +186,11 @@
 
 					<!-- gallery item #2 -->
 					<li>
-						<div class="image-holder"></div>
+						<div class="image-holder small"><img class="spudNik" src="public/images/spudNik-5.png" alt=""></div>
 						<h5>
-							js
+							javascript
 							<span class="keyline-sm">jquery</span>
 							<span class="keyline-sm">paired programming</span>
-							<span class="keyline-sm">photoshop</span>
 						</h5>
 						<h4>JavaScript Game</h4>
 						<div class="description">
@@ -256,9 +211,9 @@
 
 					<!-- gallery item #3 -->
 					<li>
-						<div class="image-holder"></div>
+						<div class="image-holder small"><img class="citySearch" src="public/images/citySearch-6.png" alt=""></div>
 						<h5>
-							js
+							javascript
 							<span class="keyline-sm">jquery</span>
 							<span class="keyline-sm">API</span>
 						</h5>
@@ -281,13 +236,13 @@
 
 					<!-- gallery item #4 -->
 					<li>
-						<div class="image-holder"></div>
+						<div class="image-holder small"><img class="over" src="public/images/over-8.png" alt=""></div>
 						<h5>
 							sass
 							<span class="keyline-sm">css3</span>
 							<span class="keyline-sm">html5</span>
 							<span class="keyline-sm">flexbox</span>
-							<span class="keyline-sm">JS</span>
+							<span class="keyline-sm">javascript</span>
 						</h5>
 						<h4>PSD to HTML/CSS Conversion</h4>
 						<div class="description">
@@ -309,18 +264,28 @@
 			</div> <!-- end of portfolio inner-wrapper -->
 		</section>
 
-		<!-- CONTACT SECTION -->
+		<!-- CONTACT & FOOTER SECTION -->
 		<footer id="contact">
 			<div class="inner-wrapper">
 				<ul>
 					<li><i class="fa fa-map-marker" aria-hidden="true"></i><p>Richmond Hill, ON</p></li>
-					<li><i class="fa fa-envelope" aria-hidden="true"></i><p>natalietheprogrammer@gmail.com</p></li>
+					<li><i class="fa fa-envelope" aria-hidden="true"></i><p>contact@natalieb.<span class="lowercase-font">io</span></p></li>
 					<li><i class="fa fa-mobile" aria-hidden="true"></i><p>647-523-7193</p></li>
-					<li><i class="fa fa-twitter" aria-hidden="true"></i><p>Copyright &copy Natalie Baranova All Rights Reserved</p></li>
+					<li><i class="fa fa-twitter" aria-hidden="true"></i><p>@Natalie_N_B</p>
+					<p class="hidden-at-550px">&copy Natalie Baranova<br>All Rights Reserved</p>
+					</li>
 				</ul>
-			</div>
+				<p class="hidden-until-550px">&copy Natalie Baranova<br>All Rights Reserved</p>
+			</div> <!-- end of contact inner wrapper -->
 		</footer>
+
 	</div> <!-- end of outter wrapper -->
+	<script
+	  src="https://code.jquery.com/jquery-3.2.1.js"
+	  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+	  crossorigin="anonymous"></script>
 	<script src="/public/scripts/app.js"></script>
+	<script src="/scripts.js"></script>
+
 </body>
 </html>

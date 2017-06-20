@@ -75,6 +75,10 @@ a:visited {
     cursor: auto;
 }
 
+.lowercase-font {
+	text-transform: lowercase;
+}
+
 // MIXINS & VARIABLES
 
 // font mixin
@@ -93,9 +97,12 @@ $header: 'Dosis', sans-serif;
 
 // colour variables
 $darkest: rgba(35, 35, 35, 1);
+$med-dark-font:  rgba(35, 35, 35, 0.65);
 $dark-fill: rgba(35, 35, 35, 0.8);
 $active-color: rgba(212, 61, 50, 1);
 $active-fill: rgba(212, 61, 50, 0.8);
+$section-fill: rgba(255, 165, 0, 0.75);
+$orange-yellow-transparency: rgba(255, 165, 0, 0.25);
 
 
 // GENERAL STYLES
@@ -103,14 +110,14 @@ $active-fill: rgba(212, 61, 50, 0.8);
 .outter-wrapper {
 	max-width: 1920px;
 	font-family: $general;
-	background-color: rgba(35, 35, 35, 0.2);
+	// background-color: rgba(35, 35, 35, 0.2);
 }
 
 .inner-wrapper {
 	max-width: 1170px;
 	margin: 0 auto;
-	padding: 0 30px;
-	background-color: rgba(250, 250, 250, 0.2);
+	padding: 0 15px;
+	// background-color: rgba(250, 250, 250, 0.2);
 }
 
 h1 {
@@ -136,7 +143,7 @@ h3 {
 }
 
 h4 {
-	@include fontStyling($header, 18px, bold, capitalize, left);
+	@include fontStyling($header, 18px, bold, uppercase, left);
 	padding-top: 12px;
 	padding-bottom: 25px;
 }
@@ -149,8 +156,12 @@ h5 {
 }
 
 
-footer p {
+#contact p {
 	@include fontStyling($header, 16px, regular, capitalize, center)
+}
+
+footer p {
+	@include fontStyling($header, 16px, regular, capitalize, right);
 }
 
 img {
@@ -162,20 +173,65 @@ img {
 	display: none;
 }
 
+// KEYLINES (H2)
+
+h2.keyline-left {
+	position: relative;
+}
+
+h2.keyline-left:after {
+	position: absolute;
+	display: block;
+	content: "";
+	width: 120px;
+	height: 2px;
+	background-color: $darkest;
+	bottom: 30px;
+	// transform: translateX(50%);
+}
+
+h2.keyline-center {
+	position: relative;
+}
+
+h2.keyline-center:after {
+	position: absolute;
+	display: block;
+	content: "";
+	width: 120px;
+	height: 2px;
+	background-color: $darkest;
+	bottom: 30px;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+.invisibleNav {
+	opacity: 0;
+}
+
+.fixedNav {
+    position: fixed;
+    width: 100%;
+    background: white;
+    z-index: 100;
+}
+
+
 
 // NAV SECTION
 
 nav {
 	height: 100px;
+	transition: all 1s ease;
 }
 
 nav a {
-	@include fontStyling($general, 14px, regular, uppercase, center)
+	@include fontStyling($general, 14px, regular, uppercase, center);
 	&:hover {
-		font-weight: bolder;
+		color: $darkest;
 	}
 	&:active {
-		font-weight: bold;
 		color: $active-color;
 	}
 }
@@ -204,14 +260,12 @@ nav a {
 }
 
 .LHS-nav {
-	padding: 0 15px;
 	width: 20%;
 }
 
 .RHS-nav {
 	width: 80%;
 	ul {
-		padding: 0 15px;
 		display: flex;
 		flex-direction: row;
 		justify-content: flex-end;
@@ -220,6 +274,7 @@ nav a {
 		padding-right: 40px;
 		padding-top: 10px;
 		padding-bottom: 10px;
+		color: $med-dark-font;
 	}
 	li:last-of-type {
 		padding-right: 0px;
@@ -234,6 +289,7 @@ header {
 	background-repeat: no-repeat;
 	background-position: right;
 	background-size: contain;
+	background-color: $section-fill;
 	.inner-wrapper {
 		height: 100%;
 		position: relative;
@@ -249,6 +305,65 @@ header {
 	}
 }
 
+	/* small to medium desktops */
+	@media (max-width: 985px) {
+		body {
+			background-color: cyan;
+		}
+		header {
+			.title-blocks {
+				display: flex;
+				flex-direction: column-reverse;
+				background: $orange-yellow-transparency;
+				position: absolute;
+				top: 42%;
+				padding-top: 10px;
+				left: -155px;
+				transform: rotate(-90deg);
+			}
+		}
+
+
+	}
+
+
+	/* scale header (image) height and adjust titel blocks vertically*/
+	@media (max-width: 784px) {
+		body {
+			background-color: cyan;
+		}
+		header {
+			height: 465px;
+			.title-blocks {
+				top: 37%;
+			}
+		}
+
+	}
+
+	/* move title blocks to bottom of image*/
+	@media (max-width: 640px) {
+		header {
+			background-image: none;
+			.title-blocks {
+				display: flex;
+				flex-direction: column;
+				background: $orange-yellow-transparency;
+				position: static;
+				// position: absolute;
+				// top: 42%;
+				// padding-top: 10px;
+				// left: -155px;
+				transform: rotate(0);
+			}
+		}
+
+
+		
+
+	}
+
+
 
 // ABOUT SECTION: 
 main {
@@ -259,6 +374,7 @@ main {
 }
 
 .LHS-about {
+	// flex: 2;
 	width: 65.35%;
 	p {
 		line-height: 26px;
@@ -270,15 +386,16 @@ main {
 	.inner-about-container {
 		display: flex;
 		flex-direction: row;
+		justify-content: space-between;
 		.small-about-container {
-			width: 50%;
-			padding-left: 35px;
+			width: calc( 50% - 30px);
 			padding-top: 50px;
 		}
 	}
 }
 
 .RHS-about {
+	// flex: 1;
 	width: 34.65%;
 	text-transform: uppercase;
 	text-align: center;
@@ -305,6 +422,81 @@ main {
 		}
 	}
 }
+
+	/* small to medium desktops */
+	@media (max-width: 1129px) {
+		body {
+			background-color: green;
+		}
+		
+		// convert RHS-about section h2 to center 
+		// convert RHS-about section h2 keyline-left to keyline-center
+		.RHS-about {
+			h2 {
+				text-align: center;
+			}
+			.keyline-left:after {
+				position: absolute;
+				display: block;
+				content: "";
+				width: 120px;
+				height: 2px;
+				background-color: $darkest;
+				bottom: 30px;
+				left: 50%;
+				transform: translateX(-50%);
+			}
+			li:last-of-type {
+				padding-top: 10px;
+			}
+		}
+	}
+
+	/* small to medium desktops */
+	@media (max-width: 790px) {
+		body {
+			background-color: purple;
+		}
+		
+		main {
+			.inner-wrapper {
+				flex-direction: column;
+			}
+			.LHS-about, .RHS-about {
+				width: 100%;
+			}
+			.RHS-about li:last-of-type p {
+				padding-bottom: 20px;
+			}
+		}
+	}
+
+	@media (max-width: 650px) {
+		body {
+			background-color: purple;
+		}
+		
+		.RHS-about {
+			padding: 0px
+		}
+	}
+
+	/* small to medium desktops */
+	// @media (max-width: 735px) {
+	// 	body {
+	// 		background-color: white;
+	// 	}
+		
+	// 	main {
+	// 		.inner-wrapper {
+	// 			flex-direction: column;
+	// 		}
+	// 		.LHS-about, .RHS-about {
+	// 			width: 100%;
+	// 		}
+	// 	}
+	// }
+
 
 // PORTFOLIO SECTION
 
@@ -333,9 +525,24 @@ main {
 		width: calc( 32% - 15px);
 		padding-bottom: 15px;
 		position: relative;
+		span.keyline-sm {
+			margin-left: 15px;
+			position: relative;
+		}
+		span.keyline-sm:before {
+			position: absolute;
+			display: inline-block;
+			content: "";
+			background-color: $darkest;
+			width: 5px;
+			height: 1px;
+			bottom: 7px;
+			left: -11px;
+		}
 	}
 	li:first-of-type {
 		width: 100%;
+		padding-bottom: 50px;
 	}
 }
 
@@ -351,11 +558,23 @@ main {
 }
 
 .image-holder {
-	// width: 100%;
 	background-color: grey;
-	height: 250px;
+	img {
+		max-width: 100%;
+	}
 }
 
+.image-holder.large {
+	display: flex;
+	flex-direction: row;
+	.image-left {
+		width: 50%;
+	}
+	.image-right {
+		width: 50%;
+		background-color: rgba(35, 35, 42, 0.95);
+	}
+}
 
 .portfolio-links-container {
 	margin: 25px 0;
@@ -382,7 +601,7 @@ main {
 		padding: 0 5px;
 	    transition: all 0.25s ease;
 		&:hover {
-    		transform: scale(1.4);
+    		transform: scale(1.3);
 		}
 		&:active {
 			font-weight: bold;
@@ -396,10 +615,10 @@ main {
 	flex-direction: row;
 	justify-content: space-between;
 	.description {
-		width: 85%;
+		width: calc(85% - 7.5px);
 	}
 	.portfolio-links-container {
-		width: 15%;
+		width: calc(15% - 7.5px);
 		margin: 0;
 		display: flex;
 		flex-direction: column;
@@ -411,29 +630,168 @@ main {
 			display: block;
 		}
 		.social-icons-portfolio {
-			margin-bottom: 15px;
+			margin-bottom: 30px;
 		}
 	}
 }
 
-// FOOTER + CONTACT SECTION
+	/* Portrait tablet and small desktops */
+	@media (max-width: 985px) {
+		body {
+			background-color: orange;
+		}
+		.lg-portfolio-flex-container {
+			flex-direction: column;
+			justify-content: space-between;
+			.description {
+				width: 100%;
+			}
+			.portfolio-links-container {
+				width: 100%;
+				margin-top: 25px;
+				flex-direction: row;
+				.links-section-portfolio a {
+					display: inline-block;
+					margin-bottom: 0px;
+				}
+				.social-icons-portfolio {
+					margin-bottom: 30px;
+				}
+			}
+		}
+	}
 
-footer {
-	margin-top: 200px;
-	margin-bottom: 115px;
-	padding: 30px 0;
+	/* Portrait tablet and small desktops */
+	@media (max-width: 735px) {
+		body {
+			background-color: pink;
+		}
+		.portfolio-links-container {
+			flex-direction: column-reverse;
+			align-items: flex-start;
+			margin-top: 15px;
+			.social-icons-portfolio {
+				padding-bottom: 25px;
+			}
+		}
+	}
+
+// CONTACT & FOOTER SECTION
+
+#contact {
+	margin-top: 80px;
+	padding-top: 90px;
+	padding-bottom: 90px;
 	text-align: center;
+	background-color: $section-fill;
 	ul {
 		display: flex;
 		flex-direction: row;
 		justify-content: space-between;
+		align-items: center;
+		i.fa {
+			font-size: 40px;
+			padding-bottom: 25px;
+			transition: all 0.25s ease;
+			&:hover {
+				transform: scale(1.3);
+			}
+			&:active {
+				font-weight: bold;
+				color: $active-color;
+			}
+		}
+		li:last-of-type {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			i.fa {
+				padding-bottom: 20px;
+			}
+			p {
+				text-align: right;
+			}
+			p:first-of-type {
+				margin-bottom: 5px;
+			}
+		}
+	}
+	p.hidden-until-550px {
+		display: none;
 	}
 }
 
-footer i.fa {
-	font-size: 40px;
-	padding-bottom: 25px;
+
+/* footer social icons - single row to dbl row */
+@media (max-width: 550px) {
+	#contact {
+		ul {
+			flex-wrap: wrap;
+			li {
+				width: 50%;
+			}
+			li:nth-of-type(n+3) {
+				margin-top: 20px;
+			}
+			li:last-of-type {
+				i.fa {
+					padding-bottom: 25px;
+				}
+				p {
+					text-align: center;
+				}
+				p:first-of-type {
+					margin-bottom: 0;
+				}
+				p.hidden-at-550px {
+					display: none;
+				}
+			}
+		}
+		p.hidden-until-550px {
+			display: block;
+			margin-top: 50px;
+		}
+
+	}
+}
+
+/* footer social icons - reduce to 1 icon per row */
+/*  & adj padding top of app, remove 2nd row margin top */
+@media (max-width: 325px) {
+	#contact {
+		ul {
+			li {
+				width: 100%;
+				padding-top: 50px;
+			}
+			li:nth-of-type(n+3) {
+				margin-top: 0;
+			}
+		}
+	}
 }
 
 
 
+
+/* Portrait tablet and small desktops */
+@media (max-width: 940px) {
+	body {
+		background-color: red;
+	}
+}
+
+/* Landscape phone to portrait tablet */
+@media (max-width: 768px) {
+	body {
+		background-color: blue;
+	}
+}
+
+/* Landscape phones and down */
+@media (max-width: 480px) {
+	body {
+		background-color: yellow;
+	}
+}
