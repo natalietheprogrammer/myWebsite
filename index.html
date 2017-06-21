@@ -6,6 +6,7 @@
 	<link rel="stylesheet" type="text/css" href="/public/styles/style.css">
 	<link href="https://fonts.googleapis.com/css?family=Dosis:400,700,800|Roboto:400,700" rel="stylesheet">
 	<script src="https://use.fontawesome.com/20d3a6ef4d.js"></script>
+	<link rel="shortcut icon" href="/public/images/n-favicon.png" type="image/x-icon">
 	<link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -13,7 +14,7 @@
 	<div class="outter-wrapper">
 
 		<!-- NAV SECTION -->
-		<nav>
+		<nav id = "home-snap">
 			<div class="inner-wrapper LHS-RHS-splitter">
 				<div class="LHS-nav">
 					<a href="#" class="resume-button link">resume</a>
@@ -21,6 +22,7 @@
 				<div class="RHS-nav mobile-hidden">
 					<ul>
 						<li>
+							<!-- intentially home, not home-snap -->
 							<a href="#home" class="home link">home</a>
 						</li>
 						<li>
@@ -41,16 +43,16 @@
 						<i class="fa fa-times" aria-hidden="true"></i>
 					<ul>
 						<li>
-							<a href="#home" class="home link menu-pop-up">home</a>
+							<a href="#home-snap" class="home link menu-pop-up-link">home</a>
 						</li>
 						<li>
-							<a href="#about-snap" class="about link menu-pop-up">about</a>
+							<a href="#about-snap" class="about link menu-pop-up-link">about</a>
 						</li>
 						<li>
-							<a href="#portfolio-snap" class="portfolio link menu-pop-up">portfolio</a>
+							<a href="#portfolio-snap" class="portfolio link menu-pop-up-link">portfolio</a>
 						</li>
 						<li>
-							<a href="#contact-snap" class="contact link menu-pop-up">contact</a>
+							<a href="#contact-snap" class="contact link menu-pop-up-link">contact</a>
 						</li>
 					</ul>
 				</div>
@@ -58,7 +60,9 @@
 		</nav> <!-- end of nav section -->
 		
 		<!-- HEADER SECTION -->
-		<header id="home">
+		<header id = "home">
+			<!-- only go to home snap from mobile pop-up menu -->
+			<div></div>
 			<div class="inner-wrapper">
 				<div class="title-blocks">
 					<h1>Natalie Baranova</h1>
@@ -180,8 +184,9 @@
 							</div>
 							<div class="portfolio-links-container">
 								<div class="links-section-portfolio">
-									<a href="#" class="app-link portfolio-link-button">Link</a>
-									<a href="#" class="git-link portfolio-link-button">Git</a>
+									<a href="https://imdatadisplay.firebaseapp.com" target="_blank"
+									 class="app-link portfolio-link-button">Link</a>
+									<a href="https://github.com/natalietheprogrammer/project6-IMR" target="_blank" class="git-link portfolio-link-button">Git</a>
 								</div>
 								<div class="social-icons-portfolio">
 									<a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
@@ -206,8 +211,8 @@
 						</div>
 						<div class="portfolio-links-container">
 							<div class="links-section-portfolio">
-								<a href="#" class="app-link portfolio-link-button">Link</a>
-								<a href="#" class="git-link portfolio-link-button">Git</a>
+								<a href="http://natalieb.io/spud-nik/" target="_blank" class="app-link portfolio-link-button">Link</a>
+								<a href="https://github.com/natalietheprogrammer/Spuk-Nik" target="_blank" class="git-link portfolio-link-button">Git</a>
 							</div>
 							<div class="social-icons-portfolio">
 								<a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
@@ -231,8 +236,8 @@
 						</div>
 						<div class="portfolio-links-container">
 							<div class="links-section-portfolio">
-								<a href="#" class="app-link portfolio-link-button">Link</a>
-								<a href="#" class="git-link portfolio-link-button">Git</a>
+								<a href="http://natalieb.io/city-search/" target="_blank" class="app-link portfolio-link-button">Link</a>
+								<a href="https://github.com/natalietheprogrammer/City-Search" target="_blank" class="git-link portfolio-link-button">Git</a>
 							</div>
 							<div class="social-icons-portfolio">
 								<a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
@@ -258,8 +263,8 @@
 						</div>
 						<div class="portfolio-links-container">
 							<div class="links-section-portfolio">
-								<a href="#" class="app-link portfolio-link-button">Link</a>
-								<a href="#" class="git-link portfolio-link-button">Git</a>
+								<a href="http://natalieb.io/over/" target="_blank" class="app-link portfolio-link-button">Link</a>
+								<a href="https://github.com/natalietheprogrammer/OVER" target="_blank" class="git-link portfolio-link-button">Git</a>
 							</div>
 							<div class="social-icons-portfolio">
 								<a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>

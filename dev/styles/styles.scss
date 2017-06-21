@@ -225,6 +225,24 @@ h2.keyline-center:after {
 	top: -25px;
 }
 
+	/* if selecting from pop-up menu (small screen) */
+	@media (max-width: 525px) {
+
+		#about-snap {
+			top: -5px;
+		}
+		#portfolio-snap {
+			top: -5px;
+		}
+		// home top offest only applicable in mobile
+		// #home {
+		// 	position: relative;
+		// }
+		// #home-snap {
+		// 	position: absolute;
+		// 	top: -100px;
+		// }
+	}
 
 // NAV SECTION
 

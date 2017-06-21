@@ -326,6 +326,13 @@ h2.keyline-center:after {
   position: absolute;
   top: -25px; }
 
+/* if selecting from pop-up menu (small screen) */
+@media (max-width: 525px) {
+  #about-snap {
+    top: -5px; }
+  #portfolio-snap {
+    top: -5px; } }
+
 nav {
   height: 100px;
   transition: all 1s ease;
