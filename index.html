@@ -24,13 +24,13 @@
 							<a href="#home" class="home link">home</a>
 						</li>
 						<li>
-							<a href="#about" class="about link">about</a>
+							<a href="#about-snap" class="about link">about</a>
 						</li>
 						<li>
-							<a href="#portfolio" class="portfolio link">portfolio</a>
+							<a href="#portfolio-snap" class="portfolio link">portfolio</a>
 						</li>
 						<li>
-							<a href="#contact" class="contact link">contact</a>
+							<a href="#contact-snap" class="contact link">contact</a>
 						</li>
 					</ul>
 				</div>
@@ -38,18 +38,19 @@
 					<a href="#" class="icon"><i class="fa fa-bars" aria-hidden="true"></i></a>
 				</div>
 				<div class="menu-open hidden">
+						<i class="fa fa-times" aria-hidden="true"></i>
 					<ul>
 						<li>
 							<a href="#home" class="home link menu-pop-up">home</a>
 						</li>
 						<li>
-							<a href="#about" class="about link menu-pop-up">about</a>
+							<a href="#about-snap" class="about link menu-pop-up">about</a>
 						</li>
 						<li>
-							<a href="#portfolio" class="portfolio link menu-pop-up">portfolio</a>
+							<a href="#portfolio-snap" class="portfolio link menu-pop-up">portfolio</a>
 						</li>
 						<li>
-							<a href="#contact" class="contact link menu-pop-up">contact</a>
+							<a href="#contact-snap" class="contact link menu-pop-up">contact</a>
 						</li>
 					</ul>
 				</div>
@@ -66,8 +67,10 @@
 			</div>
 		</header>
 
+
 		<!-- ABOUT SECTION -->
 		<main id="about">
+			<div id="about-snap"></div>
 			<div class="inner-wrapper">
 				<div class="LHS-about">
 					<h2 class="keyline-left">about me</h2>
@@ -80,11 +83,11 @@
 					</section>
 					<div class="outter-about-container">
 						<div class="inner-about-container">
-							<div class="small-about-container">
+							<div class="small-about-container-left">
 								<h3>hobbies</h3>
 								<p>When not programming I can often be found volunteering with community theater or taking a walk.</p>
 							</div>
-							<div class="small-about-container">
+							<div class="small-about-container-right">
 								<h3>a bit extra</h3>
 								<p>I am a strong believer in accessibility for all and having work environments that allow everyone to perform to the best of their abilities. It would also be great to have an office dog.</p>
 							</div>
@@ -144,6 +147,7 @@
 
 		<!-- PORTFOLIO SECTION -->
 		<section id="portfolio">
+			<div id="portfolio-snap"></div>
 			<div class="inner-wrapper">
 				<h2 class="keyline-center">featured portfolio pieces</h2>
 				<p>Using best practices for modern web development I make responsive, accessible sites with clean and dry code.</p>
@@ -214,12 +218,7 @@
 
 					<!-- gallery item #3 -->
 					<li>
-						<div class="image-holder small">
-							<img class="citySearch" src="public/images/citySearch-6.png" alt="">
-						</div>
-<!-- 						<div class="image-holder small hidden unhidden-at-670p">
-							<img class="citySearch" src="public/images/citySearch-small.png" alt="">
-						</div> -->
+						<div class="image-holder small"><img class="citySearch" src="public/images/citySearch-6.png" alt=""></div>
 						<h5>
 							javascript
 							<span class="keyline-sm">jquery</span>
@@ -272,19 +271,26 @@
 			</div> <!-- end of portfolio inner-wrapper -->
 		</section>
 
-		<!-- CONTACT & FOOTER SECTION -->
-		<footer id="contact">
+		<!-- CONTACT SECTION -->
+		<section id="contact">
+			<div id="contact-snap"></div>
 			<div class="inner-wrapper">
+			<h2 class="keyline-center">let's chat</h2>
 				<ul>
 					<li><i class="fa fa-map-marker" aria-hidden="true"></i><p>Richmond Hill, ON</p></li>
 					<li><i class="fa fa-envelope" aria-hidden="true"></i><p>contact@natalieb.<span class="lowercase-font">io</span></p></li>
 					<li><i class="fa fa-mobile" aria-hidden="true"></i><p>647-523-7193</p></li>
 					<li><i class="fa fa-twitter" aria-hidden="true"></i><p>@Natalie_N_B</p>
-					<p class="hidden-at-550px">&copy Natalie Baranova<br>All Rights Reserved</p>
 					</li>
 				</ul>
-				<p class="hidden-until-550px">&copy Natalie Baranova<br>All Rights Reserved</p>
+				
 			</div> <!-- end of contact inner wrapper -->
+		</section>
+
+		<!-- FOOTER SECTION -->
+		<footer>
+			<p>&copy Natalie Baranova. All Rights Reserved</p>
+			<p>Photo credit Pam Lau. pamlau.com. @pamlau</p>
 		</footer>
 
 	</div> <!-- end of outter wrapper -->

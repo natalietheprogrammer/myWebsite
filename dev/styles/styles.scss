@@ -110,14 +110,13 @@ $orange-yellow-transparency: rgba(255, 165, 0, 0.25);
 .outter-wrapper {
 	max-width: 1920px;
 	font-family: $general;
-	// background-color: rgba(35, 35, 35, 0.2);
+	// margin-top: 100px;
 }
 
 .inner-wrapper {
 	max-width: 1170px;
 	margin: 0 auto;
 	padding: 0 15px;
-	// background-color: rgba(250, 250, 250, 0.2);
 }
 
 h1 {
@@ -187,7 +186,6 @@ h2.keyline-left:after {
 	height: 2px;
 	background-color: $darkest;
 	bottom: 30px;
-	// transform: translateX(50%);
 }
 
 h2.keyline-center {
@@ -206,17 +204,26 @@ h2.keyline-center:after {
 	transform: translateX(-50%);
 }
 
-.invisibleNav {
-	opacity: 0;
+// OFFSET NAV AFTER MENU OPTION SELECTED
+// STOPS NAV FROM BLOCKING SECTION HEADER OF SELECTED SECTION
+
+#about {
+	position: relative;
 }
 
-.fixedNav {
-    position: fixed;
-    width: 100%;
-    background: white;
-    z-index: 100;
+#about-snap {
+	position: absolute;
+	top: -25px;
 }
 
+#portfolio {
+	position: relative;
+}
+
+#portfolio-snap {
+	position: absolute;
+	top: -25px;
+}
 
 
 // NAV SECTION
@@ -224,6 +231,7 @@ h2.keyline-center:after {
 nav {
 	height: 100px;
 	transition: all 1s ease;
+	position: relative;
 }
 
 nav a {
@@ -281,7 +289,7 @@ nav a {
 	}
 }
 
-	/* add burger bars, hide RHS nav buttons */
+	/* display burger bars instead of RHS nav buttons */
 	@media (max-width: 525px) {
 		.mobile-unhidden {
 			display: block;
@@ -295,10 +303,71 @@ nav a {
 
 	}
 
+// NAV SCROLL SETTINGS (set with JS)
+
+.invisibleNav {
+	opacity: 0;
+}
+
+.fixedNav {
+    position: fixed;
+    width: 100%;
+    background: white;
+    z-index: 100;
+}
+
+// MENU BAR POP-UP
+
+.menu-open {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 50vh;
+	background-color: $darkest;
+	color: $section-fill;
+	z-index: 150;
+	&:hover {
+		color: $section-fill;
+	}
+	&:active {
+		color: $active-color;
+	}
+	i {
+		font-size: 25px;
+		position: absolute;
+		right: 30px;
+		top: 37.5px;
+	}
+
+	li {
+		width: 100%;
+		text-align: center;
+		padding: 10px;
+	}
+	li:first-child {
+		margin-top: 64.5px;
+	}
+
+	li a {
+		font-family: $header;
+		text-align: center;
+		font-size: 20px;
+		display: inline-block;
+		letter-spacing: 5px;
+		font-weight: 600;
+		top: 50%;
+
+		color: $section-fill;
+	}
+	
+}
+
 // HEADER SECTION
 
 header {
-	height: 600px;
+	// height: 600px;
+	height: 86vh;
 	background-image: url(../images/natalieBaranova-website.jpg);
 	background-repeat: no-repeat;
 	background-position: right;
@@ -319,9 +388,31 @@ header {
 	}
 }
 
+	/* super large screens */
+	/* shift background img to avoid colliding w font */
+	@media (max-width: 1320px) {
+		@media (min-height: 815px) {
+			header {
+				background-position: 140%;
+			}
+		}
+	}
+
+	/* super large screens */
+	/* shift background img to avoid colliding w font */
+	@media (max-width: 1190px) {
+		@media (min-height: 950px) {
+			header {
+				background-position: 357%;
+			}
+		}
+	}
+
+
 	/* small to medium desktops */
 	@media (max-width: 985px) {
 		header {
+			background-position: right;
 			.title-blocks {
 				display: flex;
 				flex-direction: column-reverse;
@@ -332,21 +423,19 @@ header {
 				transform: rotate(-90deg);
 			}
 		}
-
-
 	}
 
 	/* scale header (image) height and adjust title blocks vertically */
 	@media (max-width: 784px) {
 		header {
-			height: 465px;
+			// height: 465px;
+			height: 70vh;
 			.title-blocks {
 				top: 37%;
 			}
 		}
 
 	}
-
 
 	/* move title blocks to bottom of image*/
 	@media (max-width: 640px) {
@@ -367,11 +456,7 @@ header {
 			}
 		}
 
-
-		
-
 	}
-
 
 
 // ABOUT SECTION: 
@@ -395,8 +480,12 @@ main {
 		display: flex;
 		flex-direction: row;
 		justify-content: space-between;
-		.small-about-container {
-			width: calc( 50% - 30px);
+		.small-about-container-left {
+			width: calc( 40% - 30px);
+			padding-top: 50px;
+		}
+		.small-about-container-right {
+			width: calc( 60% - 30px);
 			padding-top: 50px;
 		}
 	}
@@ -476,22 +565,22 @@ main {
 		}
 	}
 
-	/* small to medium desktops */
-	// @media (max-width: 735px) {
-	// 	body {
-	// 		background-color: white;
-	// 	}
-		
-	// 	main {
-	// 		.inner-wrapper {
-	// 			flex-direction: column;
-	// 		}
-	// 		.LHS-about, .RHS-about {
-	// 			width: 100%;
-	// 		}
-	// 	}
-	// }
-
+	// stack small about containers on top of each other
+	@media (max-width: 650px) {
+		.LHS-about {
+			.inner-about-container {
+				flex-wrap: wrap;
+				.small-about-container-left {
+					width: 100%;
+					padding-top: 50px;
+				}
+				.small-about-container-right {
+					width: 100%;
+					padding-top: 50px;
+				}
+			}
+		}
+	}
 
 // PORTFOLIO SECTION
 
@@ -701,39 +790,8 @@ main {
 		}
 	}
 
-	/* convert row of 2 cells per row to 1 cell per  */
-	/* vertically place cells w padding, center last cell */
-	// @media (max-width: 500px) {
-	// 	#portfolio {
-	// 		li {
-	// 			width: calc(100% - 15px);
-	// 			.image-holder {
-	// 				max-width: 350px;
-	// 				margin: 0 auto;
-	// 			}
-	// 		}
-	// 		// li:first-of-type {
-	// 		// 	padding-bottom: 8px;
-	// 		// }
-	// 		// li:last-child {
-	// 		// 	margin: 0 auto;
-	// 		// }
-	// 	}
-	// 	.portfolio-gallery {
-	// 		// li:nth-of-type(2) {
-	// 		// 	.portfolio-links-container {
-	// 		// 		bottom: 50px;
-	// 		// 	}
-	// 		// }
-	// 		li:nth-of-type(2) {
-	// 			.portfolio-links-container {
-	// 				position: static;
-	// 			}
-	// 		}
-	// 	}
-	// }
 
-// CONTACT & FOOTER SECTION
+// CONTACT SECTION
 
 #contact {
 	margin-top: 80px;
@@ -741,6 +799,10 @@ main {
 	padding-bottom: 90px;
 	text-align: center;
 	background-color: $section-fill;
+	h2 {
+		text-align: center;
+		padding-top: 0;
+	}
 	ul {
 		display: flex;
 		flex-direction: row;
@@ -758,23 +820,9 @@ main {
 				color: $active-color;
 			}
 		}
-		li:last-of-type {
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-			i.fa {
-				padding-bottom: 20px;
-			}
-			p {
-				text-align: right;
-			}
-			p:first-of-type {
-				margin-bottom: 5px;
-			}
+		li:nth-of-type(3) i.fa {
+			font-size: 50px;
 		}
-	}
-	p.hidden-until-550px {
-		display: none;
 	}
 }
 
@@ -800,14 +848,7 @@ main {
 				p:first-of-type {
 					margin-bottom: 0;
 				}
-				p.hidden-at-550px {
-					display: none;
-				}
 			}
-		}
-		p.hidden-until-550px {
-			display: block;
-			margin-top: 50px;
 		}
 	}
 }
@@ -829,7 +870,22 @@ main {
 }
 
 
+// FOOTER SECTION
 
+footer {
+	p {
+		text-transform: none;
+		padding-top: 60px;
+		padding-bottom: 60px;
+		text-align: center;
+	}
+	p:first-child {
+		padding-bottom: 15px;
+	}
+	p:last-child {
+		padding-top: 15px;
+	}
+}
 
 /* Portrait tablet and small desktops */
 // @media (max-width: 940px) {
