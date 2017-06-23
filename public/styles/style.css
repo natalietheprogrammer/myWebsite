@@ -259,9 +259,10 @@ h5 {
   font-weight: regular;
   text-transform: uppercase;
   text-align: left;
-  padding-top: 20px;
+  padding-top: 13px;
   padding-bottom: 12px;
-  border-bottom: 1px solid #232323; }
+  border-bottom: 1px solid #232323;
+  line-height: 1.5; }
 
 #contact p {
   color: #232323;

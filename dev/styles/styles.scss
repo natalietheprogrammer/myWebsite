@@ -149,9 +149,10 @@ h4 {
 
 h5 {
 	@include fontStyling($header, 14px, regular, uppercase, left);
-	padding-top: 20px;
+	padding-top: 13px;
 	padding-bottom: 12px;
 	border-bottom: 1px solid $darkest;
+	line-height: 1.5;
 }
 
 
