@@ -405,6 +405,9 @@ header {
 		padding-top: 0;
 		padding-bottom: 0;
 	}
+	p {
+		line-height: 1.75;
+	}
 }
 
 	/* super large screens */
@@ -610,13 +613,15 @@ main {
 	h2, p {
 		text-align: center;
 	}
+	p {
+		line-height: 26px;
+	}
 	ul {
 		display: flex;
 		flex-direction: row;
 		flex-wrap: wrap;
 		justify-content: space-between;
 		p {
-			line-height: 26px;
 			margin-top: 15px;
 			text-align: left;
 		}
@@ -874,6 +879,7 @@ main {
 
 /* footer social icons - reduce to 1 icon per row */
 /*  & adj padding top of app, remove 2nd row margin top */
+/*  increase font size */
 @media (max-width: 325px) {
 	#contact {
 		ul {
@@ -883,6 +889,9 @@ main {
 			}
 			li:nth-of-type(n+3) {
 				margin-top: 0;
+			}
+			p {
+				font-size: 20px;
 			}
 		}
 	}
